@@ -16,5 +16,10 @@ namespace Proje_Hastane
         {
             InitializeComponent();
         }
+
+        private void FrmDoktorGiris_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

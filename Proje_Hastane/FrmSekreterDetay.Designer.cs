@@ -29,6 +29,7 @@ namespace Proje_Hastane
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSekreterDetay));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbladsoyad = new System.Windows.Forms.Label();
             this.lblTC = new System.Windows.Forms.Label();
@@ -38,29 +39,30 @@ namespace Proje_Hastane
             this.buttonOlustur = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBoxRandevuId = new System.Windows.Forms.TextBox();
+            this.buttonGüncelle = new System.Windows.Forms.Button();
+            this.buttonKaydet = new System.Windows.Forms.Button();
+            this.checkBoxRandevuDurum = new System.Windows.Forms.CheckBox();
+            this.comboBoxRandevuDoktor = new System.Windows.Forms.ComboBox();
+            this.comboBoxRandevuBrans = new System.Windows.Forms.ComboBox();
+            this.maskedTextBoxRandevuTC = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxRandevuSaat = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxRandevuTarih = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.maskedTextBoxRandevuTarih = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBoxRandevuSaat = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBoxRandevuTC = new System.Windows.Forms.MaskedTextBox();
-            this.comboBoxRandevuBrans = new System.Windows.Forms.ComboBox();
-            this.comboBoxRandevuDoktor = new System.Windows.Forms.ComboBox();
-            this.checkBoxRandevuDurum = new System.Windows.Forms.CheckBox();
-            this.buttonKaydet = new System.Windows.Forms.Button();
-            this.buttonGüncelle = new System.Windows.Forms.Button();
+            this.textBoxRandevuId = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.buttonDoktorPaneli = new System.Windows.Forms.Button();
-            this.buttonBransPaneli = new System.Windows.Forms.Button();
             this.buttonRandevu = new System.Windows.Forms.Button();
+            this.buttonBransPaneli = new System.Windows.Forms.Button();
+            this.buttonDoktorPaneli = new System.Windows.Forms.Button();
+            this.labelUyarı = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -140,6 +142,7 @@ namespace Proje_Hastane
             this.buttonOlustur.TabIndex = 1;
             this.buttonOlustur.Text = "Oluştur";
             this.buttonOlustur.UseVisualStyleBackColor = true;
+            this.buttonOlustur.Click += new System.EventHandler(this.buttonOlustur_Click);
             // 
             // richTextBox1
             // 
@@ -151,6 +154,7 @@ namespace Proje_Hastane
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.labelUyarı);
             this.groupBox3.Controls.Add(this.buttonGüncelle);
             this.groupBox3.Controls.Add(this.buttonKaydet);
             this.groupBox3.Controls.Add(this.checkBoxRandevuDurum);
@@ -173,58 +177,78 @@ namespace Proje_Hastane
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Randevu Paneli";
             // 
-            // groupBox4
+            // buttonGüncelle
             // 
-            this.groupBox4.Controls.Add(this.dataGridView1);
-            this.groupBox4.Location = new System.Drawing.Point(487, 12);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(374, 198);
-            this.groupBox4.TabIndex = 4;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Branşlar";
+            this.buttonGüncelle.Location = new System.Drawing.Point(112, 267);
+            this.buttonGüncelle.Name = "buttonGüncelle";
+            this.buttonGüncelle.Size = new System.Drawing.Size(97, 33);
+            this.buttonGüncelle.TabIndex = 14;
+            this.buttonGüncelle.Text = "Güncelle";
+            this.buttonGüncelle.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // buttonKaydet
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 36);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 18);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Id: ";
+            this.buttonKaydet.Location = new System.Drawing.Point(6, 267);
+            this.buttonKaydet.Name = "buttonKaydet";
+            this.buttonKaydet.Size = new System.Drawing.Size(97, 33);
+            this.buttonKaydet.TabIndex = 13;
+            this.buttonKaydet.Text = "Kaydet";
+            this.buttonKaydet.UseVisualStyleBackColor = true;
+            this.buttonKaydet.Click += new System.EventHandler(this.buttonKaydet_Click);
             // 
-            // label4
+            // checkBoxRandevuDurum
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 67);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 18);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Tarih: ";
+            this.checkBoxRandevuDurum.AutoSize = true;
+            this.checkBoxRandevuDurum.Location = new System.Drawing.Point(71, 219);
+            this.checkBoxRandevuDurum.Name = "checkBoxRandevuDurum";
+            this.checkBoxRandevuDurum.Size = new System.Drawing.Size(77, 22);
+            this.checkBoxRandevuDurum.TabIndex = 12;
+            this.checkBoxRandevuDurum.Text = "Durum";
+            this.checkBoxRandevuDurum.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // comboBoxRandevuDoktor
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 129);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 18);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Branş: ";
+            this.comboBoxRandevuDoktor.FormattingEnabled = true;
+            this.comboBoxRandevuDoktor.Location = new System.Drawing.Point(71, 158);
+            this.comboBoxRandevuDoktor.Name = "comboBoxRandevuDoktor";
+            this.comboBoxRandevuDoktor.Size = new System.Drawing.Size(128, 26);
+            this.comboBoxRandevuDoktor.TabIndex = 11;
             // 
-            // label6
+            // comboBoxRandevuBrans
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 98);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 18);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Saat: ";
+            this.comboBoxRandevuBrans.FormattingEnabled = true;
+            this.comboBoxRandevuBrans.Location = new System.Drawing.Point(71, 126);
+            this.comboBoxRandevuBrans.Name = "comboBoxRandevuBrans";
+            this.comboBoxRandevuBrans.Size = new System.Drawing.Size(128, 26);
+            this.comboBoxRandevuBrans.TabIndex = 10;
+            this.comboBoxRandevuBrans.SelectedIndexChanged += new System.EventHandler(this.comboBoxRandevuBrans_SelectedIndexChanged);
             // 
-            // textBoxRandevuId
+            // maskedTextBoxRandevuTC
             // 
-            this.textBoxRandevuId.Location = new System.Drawing.Point(71, 33);
-            this.textBoxRandevuId.Name = "textBoxRandevuId";
-            this.textBoxRandevuId.Size = new System.Drawing.Size(128, 24);
-            this.textBoxRandevuId.TabIndex = 4;
+            this.maskedTextBoxRandevuTC.Location = new System.Drawing.Point(71, 189);
+            this.maskedTextBoxRandevuTC.Mask = "0000000000";
+            this.maskedTextBoxRandevuTC.Name = "maskedTextBoxRandevuTC";
+            this.maskedTextBoxRandevuTC.Size = new System.Drawing.Size(128, 24);
+            this.maskedTextBoxRandevuTC.TabIndex = 9;
+            this.maskedTextBoxRandevuTC.ValidatingType = typeof(int);
+            // 
+            // maskedTextBoxRandevuSaat
+            // 
+            this.maskedTextBoxRandevuSaat.Location = new System.Drawing.Point(71, 95);
+            this.maskedTextBoxRandevuSaat.Mask = "00:00";
+            this.maskedTextBoxRandevuSaat.Name = "maskedTextBoxRandevuSaat";
+            this.maskedTextBoxRandevuSaat.Size = new System.Drawing.Size(128, 24);
+            this.maskedTextBoxRandevuSaat.TabIndex = 8;
+            this.maskedTextBoxRandevuSaat.ValidatingType = typeof(System.DateTime);
+            // 
+            // maskedTextBoxRandevuTarih
+            // 
+            this.maskedTextBoxRandevuTarih.Location = new System.Drawing.Point(71, 64);
+            this.maskedTextBoxRandevuTarih.Mask = "00/00/0000";
+            this.maskedTextBoxRandevuTarih.Name = "maskedTextBoxRandevuTarih";
+            this.maskedTextBoxRandevuTarih.Size = new System.Drawing.Size(128, 24);
+            this.maskedTextBoxRandevuTarih.TabIndex = 7;
+            this.maskedTextBoxRandevuTarih.ValidatingType = typeof(System.DateTime);
             // 
             // label7
             // 
@@ -244,79 +268,62 @@ namespace Proje_Hastane
             this.label8.TabIndex = 5;
             this.label8.Text = "Doktor: ";
             // 
-            // maskedTextBoxRandevuTarih
+            // textBoxRandevuId
             // 
-            this.maskedTextBoxRandevuTarih.Location = new System.Drawing.Point(71, 64);
-            this.maskedTextBoxRandevuTarih.Mask = "00/00/0000";
-            this.maskedTextBoxRandevuTarih.Name = "maskedTextBoxRandevuTarih";
-            this.maskedTextBoxRandevuTarih.Size = new System.Drawing.Size(128, 24);
-            this.maskedTextBoxRandevuTarih.TabIndex = 7;
-            this.maskedTextBoxRandevuTarih.ValidatingType = typeof(System.DateTime);
+            this.textBoxRandevuId.Location = new System.Drawing.Point(71, 33);
+            this.textBoxRandevuId.Name = "textBoxRandevuId";
+            this.textBoxRandevuId.Size = new System.Drawing.Size(128, 24);
+            this.textBoxRandevuId.TabIndex = 4;
             // 
-            // maskedTextBoxRandevuSaat
+            // label5
             // 
-            this.maskedTextBoxRandevuSaat.Location = new System.Drawing.Point(71, 95);
-            this.maskedTextBoxRandevuSaat.Mask = "00:00";
-            this.maskedTextBoxRandevuSaat.Name = "maskedTextBoxRandevuSaat";
-            this.maskedTextBoxRandevuSaat.Size = new System.Drawing.Size(128, 24);
-            this.maskedTextBoxRandevuSaat.TabIndex = 8;
-            this.maskedTextBoxRandevuSaat.ValidatingType = typeof(System.DateTime);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 129);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 18);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Branş: ";
             // 
-            // maskedTextBoxRandevuTC
+            // label6
             // 
-            this.maskedTextBoxRandevuTC.Location = new System.Drawing.Point(71, 189);
-            this.maskedTextBoxRandevuTC.Mask = "0000000000";
-            this.maskedTextBoxRandevuTC.Name = "maskedTextBoxRandevuTC";
-            this.maskedTextBoxRandevuTC.Size = new System.Drawing.Size(128, 24);
-            this.maskedTextBoxRandevuTC.TabIndex = 9;
-            this.maskedTextBoxRandevuTC.ValidatingType = typeof(int);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(23, 98);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 18);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Saat: ";
             // 
-            // comboBoxRandevuBrans
+            // label4
             // 
-            this.comboBoxRandevuBrans.FormattingEnabled = true;
-            this.comboBoxRandevuBrans.Location = new System.Drawing.Point(71, 126);
-            this.comboBoxRandevuBrans.Name = "comboBoxRandevuBrans";
-            this.comboBoxRandevuBrans.Size = new System.Drawing.Size(128, 26);
-            this.comboBoxRandevuBrans.TabIndex = 10;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(19, 67);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 18);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Tarih: ";
             // 
-            // comboBoxRandevuDoktor
+            // label3
             // 
-            this.comboBoxRandevuDoktor.FormattingEnabled = true;
-            this.comboBoxRandevuDoktor.Location = new System.Drawing.Point(71, 158);
-            this.comboBoxRandevuDoktor.Name = "comboBoxRandevuDoktor";
-            this.comboBoxRandevuDoktor.Size = new System.Drawing.Size(128, 26);
-            this.comboBoxRandevuDoktor.TabIndex = 11;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(44, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 18);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Id: ";
             // 
-            // checkBoxRandevuDurum
+            // groupBox4
             // 
-            this.checkBoxRandevuDurum.AutoSize = true;
-            this.checkBoxRandevuDurum.Location = new System.Drawing.Point(71, 219);
-            this.checkBoxRandevuDurum.Name = "checkBoxRandevuDurum";
-            this.checkBoxRandevuDurum.Size = new System.Drawing.Size(77, 22);
-            this.checkBoxRandevuDurum.TabIndex = 12;
-            this.checkBoxRandevuDurum.Text = "Durum";
-            this.checkBoxRandevuDurum.UseVisualStyleBackColor = true;
-            // 
-            // buttonKaydet
-            // 
-            this.buttonKaydet.Location = new System.Drawing.Point(6, 267);
-            this.buttonKaydet.Name = "buttonKaydet";
-            this.buttonKaydet.Size = new System.Drawing.Size(97, 33);
-            this.buttonKaydet.TabIndex = 13;
-            this.buttonKaydet.Text = "Kaydet";
-            this.buttonKaydet.UseVisualStyleBackColor = true;
-            // 
-            // buttonGüncelle
-            // 
-            this.buttonGüncelle.Location = new System.Drawing.Point(112, 267);
-            this.buttonGüncelle.Name = "buttonGüncelle";
-            this.buttonGüncelle.Size = new System.Drawing.Size(97, 33);
-            this.buttonGüncelle.TabIndex = 14;
-            this.buttonGüncelle.Text = "Güncelle";
-            this.buttonGüncelle.UseVisualStyleBackColor = true;
+            this.groupBox4.Controls.Add(this.dataGridView1);
+            this.groupBox4.Location = new System.Drawing.Point(487, 12);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(374, 198);
+            this.groupBox4.TabIndex = 4;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Branşlar";
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 20);
@@ -336,6 +343,7 @@ namespace Proje_Hastane
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 20);
@@ -355,14 +363,15 @@ namespace Proje_Hastane
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Hızlı Erişim";
             // 
-            // buttonDoktorPaneli
+            // buttonRandevu
             // 
-            this.buttonDoktorPaneli.Location = new System.Drawing.Point(6, 23);
-            this.buttonDoktorPaneli.Name = "buttonDoktorPaneli";
-            this.buttonDoktorPaneli.Size = new System.Drawing.Size(150, 35);
-            this.buttonDoktorPaneli.TabIndex = 14;
-            this.buttonDoktorPaneli.Text = "Doktor Paneli";
-            this.buttonDoktorPaneli.UseVisualStyleBackColor = true;
+            this.buttonRandevu.Location = new System.Drawing.Point(313, 23);
+            this.buttonRandevu.Name = "buttonRandevu";
+            this.buttonRandevu.Size = new System.Drawing.Size(150, 35);
+            this.buttonRandevu.TabIndex = 16;
+            this.buttonRandevu.Text = "Randevu Listesi";
+            this.buttonRandevu.UseVisualStyleBackColor = true;
+            this.buttonRandevu.Click += new System.EventHandler(this.buttonRandevu_Click);
             // 
             // buttonBransPaneli
             // 
@@ -372,20 +381,33 @@ namespace Proje_Hastane
             this.buttonBransPaneli.TabIndex = 15;
             this.buttonBransPaneli.Text = "Branş Paneli";
             this.buttonBransPaneli.UseVisualStyleBackColor = true;
+            this.buttonBransPaneli.Click += new System.EventHandler(this.buttonBransPaneli_Click);
             // 
-            // buttonRandevu
+            // buttonDoktorPaneli
             // 
-            this.buttonRandevu.Location = new System.Drawing.Point(313, 23);
-            this.buttonRandevu.Name = "buttonRandevu";
-            this.buttonRandevu.Size = new System.Drawing.Size(150, 35);
-            this.buttonRandevu.TabIndex = 16;
-            this.buttonRandevu.Text = "Randevu Listesi";
-            this.buttonRandevu.UseVisualStyleBackColor = true;
+            this.buttonDoktorPaneli.Location = new System.Drawing.Point(6, 23);
+            this.buttonDoktorPaneli.Name = "buttonDoktorPaneli";
+            this.buttonDoktorPaneli.Size = new System.Drawing.Size(150, 35);
+            this.buttonDoktorPaneli.TabIndex = 14;
+            this.buttonDoktorPaneli.Text = "Doktor Paneli";
+            this.buttonDoktorPaneli.UseVisualStyleBackColor = true;
+            this.buttonDoktorPaneli.Click += new System.EventHandler(this.buttonDoktorPaneli_Click);
+            // 
+            // labelUyarı
+            // 
+            this.labelUyarı.AutoSize = true;
+            this.labelUyarı.Location = new System.Drawing.Point(5, 238);
+            this.labelUyarı.Name = "labelUyarı";
+            this.labelUyarı.Size = new System.Drawing.Size(47, 18);
+            this.labelUyarı.TabIndex = 15;
+            this.labelUyarı.Text = "Uyarı";
+            this.labelUyarı.Visible = false;
             // 
             // FrmSekreterDetay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(872, 398);
             this.Controls.Add(this.groupBox6);
@@ -395,9 +417,12 @@ namespace Proje_Hastane
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.MaximizeBox = false;
             this.Name = "FrmSekreterDetay";
             this.Text = "FrmSekreterDetay";
+            this.Load += new System.EventHandler(this.FrmSekreterDetay_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -446,5 +471,6 @@ namespace Proje_Hastane
         private System.Windows.Forms.Button buttonRandevu;
         private System.Windows.Forms.Button buttonBransPaneli;
         private System.Windows.Forms.Button buttonDoktorPaneli;
+        private System.Windows.Forms.Label labelUyarı;
     }
 }

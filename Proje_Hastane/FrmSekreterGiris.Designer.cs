@@ -29,12 +29,14 @@ namespace Proje_Hastane
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSekreterGiris));
             this.label3 = new System.Windows.Forms.Label();
             this.buttongiris = new System.Windows.Forms.Button();
             this.txtsifre = new System.Windows.Forms.TextBox();
             this.MskTC = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.labeluyarı = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
@@ -49,12 +51,13 @@ namespace Proje_Hastane
             // 
             // buttongiris
             // 
-            this.buttongiris.Location = new System.Drawing.Point(72, 134);
+            this.buttongiris.Location = new System.Drawing.Point(73, 114);
             this.buttongiris.Name = "buttongiris";
             this.buttongiris.Size = new System.Drawing.Size(124, 39);
             this.buttongiris.TabIndex = 11;
             this.buttongiris.Text = "Giriş Yap";
             this.buttongiris.UseVisualStyleBackColor = true;
+            this.buttongiris.Click += new System.EventHandler(this.buttongiris_Click);
             // 
             // txtsifre
             // 
@@ -91,12 +94,26 @@ namespace Proje_Hastane
             this.label1.TabIndex = 7;
             this.label1.Text = "TC Kimlik No: ";
             // 
+            // labeluyarı
+            // 
+            this.labeluyarı.AutoSize = true;
+            this.labeluyarı.Location = new System.Drawing.Point(12, 164);
+            this.labeluyarı.Name = "labeluyarı";
+            this.labeluyarı.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.labeluyarı.Size = new System.Drawing.Size(47, 18);
+            this.labeluyarı.TabIndex = 14;
+            this.labeluyarı.Text = "Uyarı";
+            this.labeluyarı.Visible = false;
+            // 
             // FrmSekreterGiris
             // 
+            this.AcceptButton = this.buttongiris;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(310, 214);
+            this.Controls.Add(this.labeluyarı);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttongiris);
             this.Controls.Add(this.txtsifre);
@@ -104,7 +121,9 @@ namespace Proje_Hastane
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.MaximizeBox = false;
             this.Name = "FrmSekreterGiris";
             this.Text = "FrmSekreterGiris";
             this.ResumeLayout(false);
@@ -120,5 +139,6 @@ namespace Proje_Hastane
         private System.Windows.Forms.MaskedTextBox MskTC;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labeluyarı;
     }
 }

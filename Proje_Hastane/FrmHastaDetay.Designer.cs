@@ -29,12 +29,14 @@ namespace Proje_Hastane
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHastaDetay));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbladsoyad = new System.Windows.Forms.Label();
             this.lblTC = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.linkLabelbilgiduzenle = new System.Windows.Forms.LinkLabel();
             this.buttonrendevual = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.richTextBoxsikayet = new System.Windows.Forms.RichTextBox();
@@ -43,15 +45,14 @@ namespace Proje_Hastane
             this.comboBoxbrans = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.linkLabelbilgiduzenle = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,6 +124,17 @@ namespace Proje_Hastane
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Randevu";
             // 
+            // linkLabelbilgiduzenle
+            // 
+            this.linkLabelbilgiduzenle.AutoSize = true;
+            this.linkLabelbilgiduzenle.Location = new System.Drawing.Point(6, 323);
+            this.linkLabelbilgiduzenle.Name = "linkLabelbilgiduzenle";
+            this.linkLabelbilgiduzenle.Size = new System.Drawing.Size(142, 18);
+            this.linkLabelbilgiduzenle.TabIndex = 18;
+            this.linkLabelbilgiduzenle.TabStop = true;
+            this.linkLabelbilgiduzenle.Text = "Bilgilerini Düzenle";
+            this.linkLabelbilgiduzenle.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelbilgiduzenle_LinkClicked);
+            // 
             // buttonrendevual
             // 
             this.buttonrendevual.Location = new System.Drawing.Point(82, 273);
@@ -156,6 +168,7 @@ namespace Proje_Hastane
             this.comboBoxdoktor.Name = "comboBoxdoktor";
             this.comboBoxdoktor.Size = new System.Drawing.Size(150, 26);
             this.comboBoxdoktor.TabIndex = 8;
+            this.comboBoxdoktor.SelectedIndexChanged += new System.EventHandler(this.comboBoxdoktor_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -173,6 +186,7 @@ namespace Proje_Hastane
             this.comboBoxbrans.Name = "comboBoxbrans";
             this.comboBoxbrans.Size = new System.Drawing.Size(150, 26);
             this.comboBoxbrans.TabIndex = 6;
+            this.comboBoxbrans.SelectedIndexChanged += new System.EventHandler(this.comboBoxbrans_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -194,6 +208,15 @@ namespace Proje_Hastane
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Randevü Geçmişi";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 20);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(668, 235);
+            this.dataGridView1.TabIndex = 0;
+            // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.PaleTurquoise;
@@ -205,15 +228,6 @@ namespace Proje_Hastane
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Aktif Randevular";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 20);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(668, 235);
-            this.dataGridView1.TabIndex = 0;
-            // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -222,16 +236,6 @@ namespace Proje_Hastane
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(668, 179);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // linkLabelbilgiduzenle
-            // 
-            this.linkLabelbilgiduzenle.AutoSize = true;
-            this.linkLabelbilgiduzenle.Location = new System.Drawing.Point(6, 323);
-            this.linkLabelbilgiduzenle.Name = "linkLabelbilgiduzenle";
-            this.linkLabelbilgiduzenle.Size = new System.Drawing.Size(142, 18);
-            this.linkLabelbilgiduzenle.TabIndex = 18;
-            this.linkLabelbilgiduzenle.TabStop = true;
-            this.linkLabelbilgiduzenle.Text = "Bilgilerini Düzenle";
             // 
             // FrmHastaDetay
             // 
@@ -243,16 +247,18 @@ namespace Proje_Hastane
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "FrmHastaDetay";
             this.Text = "Hasta Detay";
+            this.Load += new System.EventHandler(this.FrmHastaDetay_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 

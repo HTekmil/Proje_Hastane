@@ -29,19 +29,21 @@ namespace Proje_Hastane
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBilgiDuzenle));
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxcinsiyet = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.maskedTextBoxTelefon = new System.Windows.Forms.MaskedTextBox();
+            this.textBoxsoyad = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxad = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtsifre = new System.Windows.Forms.TextBox();
             this.MskTC = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.labelUyarı = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -52,6 +54,7 @@ namespace Proje_Hastane
             this.button1.TabIndex = 29;
             this.button1.Text = "Güncelle";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label6
             // 
@@ -62,16 +65,16 @@ namespace Proje_Hastane
             this.label6.TabIndex = 28;
             this.label6.Text = "Cinsiyet: ";
             // 
-            // comboBox1
+            // comboBoxcinsiyet
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxcinsiyet.FormattingEnabled = true;
+            this.comboBoxcinsiyet.Items.AddRange(new object[] {
             "Erkek",
             "Kadın"});
-            this.comboBox1.Location = new System.Drawing.Point(133, 156);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(124, 26);
-            this.comboBox1.TabIndex = 27;
+            this.comboBoxcinsiyet.Location = new System.Drawing.Point(133, 156);
+            this.comboBoxcinsiyet.Name = "comboBoxcinsiyet";
+            this.comboBoxcinsiyet.Size = new System.Drawing.Size(124, 26);
+            this.comboBoxcinsiyet.TabIndex = 6;
             // 
             // label5
             // 
@@ -82,21 +85,20 @@ namespace Proje_Hastane
             this.label5.TabIndex = 26;
             this.label5.Text = "Telefon No: ";
             // 
-            // maskedTextBox1
+            // maskedTextBoxTelefon
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(133, 96);
-            this.maskedTextBox1.Mask = "(999) 000-0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(124, 24);
-            this.maskedTextBox1.TabIndex = 25;
+            this.maskedTextBoxTelefon.Location = new System.Drawing.Point(133, 96);
+            this.maskedTextBoxTelefon.Mask = "(999) 000-0000";
+            this.maskedTextBoxTelefon.Name = "maskedTextBoxTelefon";
+            this.maskedTextBoxTelefon.Size = new System.Drawing.Size(124, 24);
+            this.maskedTextBoxTelefon.TabIndex = 4;
             // 
-            // textBox2
+            // textBoxsoyad
             // 
-            this.textBox2.Location = new System.Drawing.Point(133, 36);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(124, 24);
-            this.textBox2.TabIndex = 24;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.textBoxsoyad.Location = new System.Drawing.Point(133, 36);
+            this.textBoxsoyad.Name = "textBoxsoyad";
+            this.textBoxsoyad.Size = new System.Drawing.Size(124, 24);
+            this.textBoxsoyad.TabIndex = 2;
             // 
             // label4
             // 
@@ -107,13 +109,12 @@ namespace Proje_Hastane
             this.label4.TabIndex = 23;
             this.label4.Text = "Soyad: ";
             // 
-            // textBox1
+            // textBoxad
             // 
-            this.textBox1.Location = new System.Drawing.Point(133, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(124, 24);
-            this.textBox1.TabIndex = 22;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.textBoxad.Location = new System.Drawing.Point(133, 6);
+            this.textBoxad.Name = "textBoxad";
+            this.textBoxad.Size = new System.Drawing.Size(124, 24);
+            this.textBoxad.TabIndex = 1;
             // 
             // label3
             // 
@@ -129,8 +130,7 @@ namespace Proje_Hastane
             this.txtsifre.Location = new System.Drawing.Point(133, 126);
             this.txtsifre.Name = "txtsifre";
             this.txtsifre.Size = new System.Drawing.Size(124, 24);
-            this.txtsifre.TabIndex = 20;
-            this.txtsifre.UseSystemPasswordChar = true;
+            this.txtsifre.TabIndex = 5;
             // 
             // MskTC
             // 
@@ -138,7 +138,7 @@ namespace Proje_Hastane
             this.MskTC.Mask = "00000000000";
             this.MskTC.Name = "MskTC";
             this.MskTC.Size = new System.Drawing.Size(124, 24);
-            this.MskTC.TabIndex = 19;
+            this.MskTC.TabIndex = 3;
             this.MskTC.ValidatingType = typeof(int);
             // 
             // label2
@@ -159,29 +159,45 @@ namespace Proje_Hastane
             this.label1.TabIndex = 17;
             this.label1.Text = "TC Kimlik No: ";
             // 
+            // labelUyarı
+            // 
+            this.labelUyarı.AutoSize = true;
+            this.labelUyarı.Location = new System.Drawing.Point(12, 230);
+            this.labelUyarı.Name = "labelUyarı";
+            this.labelUyarı.Size = new System.Drawing.Size(14, 18);
+            this.labelUyarı.TabIndex = 30;
+            this.labelUyarı.Text = "-";
+            this.labelUyarı.Visible = false;
+            // 
             // FrmBilgiDuzenle
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightCoral;
-            this.ClientSize = new System.Drawing.Size(288, 248);
+            this.ClientSize = new System.Drawing.Size(296, 279);
+            this.Controls.Add(this.labelUyarı);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxcinsiyet);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.maskedTextBoxTelefon);
+            this.Controls.Add(this.textBoxsoyad);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxad);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtsifre);
             this.Controls.Add(this.MskTC);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.MaximizeBox = false;
             this.Name = "FrmBilgiDuzenle";
             this.Text = "FrmBilgiDuzenle";
+            this.Load += new System.EventHandler(this.FrmBilgiDuzenle_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,16 +207,17 @@ namespace Proje_Hastane
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxcinsiyet;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxTelefon;
+        private System.Windows.Forms.TextBox textBoxsoyad;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxad;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtsifre;
         private System.Windows.Forms.MaskedTextBox MskTC;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelUyarı;
     }
 }

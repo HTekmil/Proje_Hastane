@@ -31,12 +31,16 @@ namespace Proje_Hastane
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            FrmDoktorGiris doktorgiris = new FrmDoktorGiris();
+            doktorgiris.Show();
+            this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            FrmSekreterGiris sekretergiris = new FrmSekreterGiris();
+            sekretergiris.Show();
+            this.Hide();
         }
 
         private void label1_Click(object sender, EventArgs e)
