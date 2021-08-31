@@ -28,5 +28,10 @@ namespace Proje_Hastane
             dataGridView1.DataSource = dt;
 
         }
+        public int secilen;
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
     }
 }

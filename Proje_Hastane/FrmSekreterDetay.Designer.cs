@@ -39,6 +39,7 @@ namespace Proje_Hastane
             this.buttonOlustur = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.labelUyarı = new System.Windows.Forms.Label();
             this.buttonGüncelle = new System.Windows.Forms.Button();
             this.buttonKaydet = new System.Windows.Forms.Button();
             this.checkBoxRandevuDurum = new System.Windows.Forms.CheckBox();
@@ -62,7 +63,7 @@ namespace Proje_Hastane
             this.buttonRandevu = new System.Windows.Forms.Button();
             this.buttonBransPaneli = new System.Windows.Forms.Button();
             this.buttonDoktorPaneli = new System.Windows.Forms.Button();
-            this.labelUyarı = new System.Windows.Forms.Label();
+            this.buttonduyuru = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -125,6 +126,7 @@ namespace Proje_Hastane
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.buttonduyuru);
             this.groupBox2.Controls.Add(this.buttonOlustur);
             this.groupBox2.Controls.Add(this.richTextBox1);
             this.groupBox2.Location = new System.Drawing.Point(12, 123);
@@ -138,7 +140,7 @@ namespace Proje_Hastane
             // 
             this.buttonOlustur.Location = new System.Drawing.Point(9, 151);
             this.buttonOlustur.Name = "buttonOlustur";
-            this.buttonOlustur.Size = new System.Drawing.Size(233, 38);
+            this.buttonOlustur.Size = new System.Drawing.Size(115, 38);
             this.buttonOlustur.TabIndex = 1;
             this.buttonOlustur.Text = "Oluştur";
             this.buttonOlustur.UseVisualStyleBackColor = true;
@@ -177,6 +179,16 @@ namespace Proje_Hastane
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Randevu Paneli";
             // 
+            // labelUyarı
+            // 
+            this.labelUyarı.AutoSize = true;
+            this.labelUyarı.Location = new System.Drawing.Point(5, 238);
+            this.labelUyarı.Name = "labelUyarı";
+            this.labelUyarı.Size = new System.Drawing.Size(47, 18);
+            this.labelUyarı.TabIndex = 15;
+            this.labelUyarı.Text = "Uyarı";
+            this.labelUyarı.Visible = false;
+            // 
             // buttonGüncelle
             // 
             this.buttonGüncelle.Location = new System.Drawing.Point(112, 267);
@@ -185,6 +197,7 @@ namespace Proje_Hastane
             this.buttonGüncelle.TabIndex = 14;
             this.buttonGüncelle.Text = "Güncelle";
             this.buttonGüncelle.UseVisualStyleBackColor = true;
+            this.buttonGüncelle.Visible = false;
             // 
             // buttonKaydet
             // 
@@ -393,15 +406,15 @@ namespace Proje_Hastane
             this.buttonDoktorPaneli.UseVisualStyleBackColor = true;
             this.buttonDoktorPaneli.Click += new System.EventHandler(this.buttonDoktorPaneli_Click);
             // 
-            // labelUyarı
+            // buttonduyuru
             // 
-            this.labelUyarı.AutoSize = true;
-            this.labelUyarı.Location = new System.Drawing.Point(5, 238);
-            this.labelUyarı.Name = "labelUyarı";
-            this.labelUyarı.Size = new System.Drawing.Size(47, 18);
-            this.labelUyarı.TabIndex = 15;
-            this.labelUyarı.Text = "Uyarı";
-            this.labelUyarı.Visible = false;
+            this.buttonduyuru.Location = new System.Drawing.Point(127, 151);
+            this.buttonduyuru.Name = "buttonduyuru";
+            this.buttonduyuru.Size = new System.Drawing.Size(115, 38);
+            this.buttonduyuru.TabIndex = 2;
+            this.buttonduyuru.Text = "Duyurular";
+            this.buttonduyuru.UseVisualStyleBackColor = true;
+            this.buttonduyuru.Click += new System.EventHandler(this.buttonduyuru_Click);
             // 
             // FrmSekreterDetay
             // 
@@ -472,5 +485,6 @@ namespace Proje_Hastane
         private System.Windows.Forms.Button buttonBransPaneli;
         private System.Windows.Forms.Button buttonDoktorPaneli;
         private System.Windows.Forms.Label labelUyarı;
+        private System.Windows.Forms.Button buttonduyuru;
     }
 }

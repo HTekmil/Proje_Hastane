@@ -111,5 +111,11 @@ namespace Proje_Hastane
             FrmRandevuListesi randevulistesi = new FrmRandevuListesi();
             randevulistesi.Show();
         }
+
+        private void buttonduyuru_Click(object sender, EventArgs e)
+        {
+            FrmDuyurular duyurular = new FrmDuyurular();
+            duyurular.Show();
+        }
     }
 }
