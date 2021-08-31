@@ -29,10 +29,11 @@ namespace Proje_Hastane
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDoktorBilgiDüzenle));
             this.buttongüncelle = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxsoyad = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxad = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtsifre = new System.Windows.Forms.TextBox();
             this.MskTC = new System.Windows.Forms.MaskedTextBox();
@@ -40,6 +41,7 @@ namespace Proje_Hastane
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxBrans = new System.Windows.Forms.ComboBox();
+            this.labeluyari = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttongüncelle
@@ -50,14 +52,14 @@ namespace Proje_Hastane
             this.buttongüncelle.TabIndex = 42;
             this.buttongüncelle.Text = "Güncelle";
             this.buttongüncelle.UseVisualStyleBackColor = true;
+            this.buttongüncelle.Click += new System.EventHandler(this.buttongüncelle_Click);
             // 
-            // textBox2
+            // textBoxsoyad
             // 
-            this.textBox2.Location = new System.Drawing.Point(129, 36);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(124, 24);
-            this.textBox2.TabIndex = 37;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.textBoxsoyad.Location = new System.Drawing.Point(129, 36);
+            this.textBoxsoyad.Name = "textBoxsoyad";
+            this.textBoxsoyad.Size = new System.Drawing.Size(124, 24);
+            this.textBoxsoyad.TabIndex = 37;
             // 
             // label4
             // 
@@ -68,13 +70,12 @@ namespace Proje_Hastane
             this.label4.TabIndex = 36;
             this.label4.Text = "Soyad: ";
             // 
-            // textBox1
+            // textBoxad
             // 
-            this.textBox1.Location = new System.Drawing.Point(129, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(124, 24);
-            this.textBox1.TabIndex = 35;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.textBoxad.Location = new System.Drawing.Point(129, 6);
+            this.textBoxad.Name = "textBoxad";
+            this.textBoxad.Size = new System.Drawing.Size(124, 24);
+            this.textBoxad.TabIndex = 35;
             // 
             // label3
             // 
@@ -91,7 +92,6 @@ namespace Proje_Hastane
             this.txtsifre.Name = "txtsifre";
             this.txtsifre.Size = new System.Drawing.Size(124, 24);
             this.txtsifre.TabIndex = 33;
-            this.txtsifre.UseSystemPasswordChar = true;
             // 
             // MskTC
             // 
@@ -137,27 +137,42 @@ namespace Proje_Hastane
             this.comboBoxBrans.Size = new System.Drawing.Size(124, 26);
             this.comboBoxBrans.TabIndex = 44;
             // 
+            // labeluyari
+            // 
+            this.labeluyari.AutoSize = true;
+            this.labeluyari.Location = new System.Drawing.Point(5, 199);
+            this.labeluyari.Name = "labeluyari";
+            this.labeluyari.Size = new System.Drawing.Size(47, 18);
+            this.labeluyari.TabIndex = 45;
+            this.labeluyari.Text = "Uyarı";
+            this.labeluyari.Visible = false;
+            // 
             // FrmDoktorBilgiDüzenle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LemonChiffon;
-            this.ClientSize = new System.Drawing.Size(311, 230);
+            this.ClientSize = new System.Drawing.Size(311, 250);
+            this.Controls.Add(this.labeluyari);
             this.Controls.Add(this.comboBoxBrans);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.buttongüncelle);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxsoyad);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxad);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtsifre);
             this.Controls.Add(this.MskTC);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.MaximizeBox = false;
             this.Name = "FrmDoktorBilgiDüzenle";
             this.Text = "FrmDoktorBilgiDüzenle";
+            this.Load += new System.EventHandler(this.FrmDoktorBilgiDüzenle_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,9 +181,9 @@ namespace Proje_Hastane
         #endregion
 
         private System.Windows.Forms.Button buttongüncelle;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxsoyad;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxad;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtsifre;
         private System.Windows.Forms.MaskedTextBox MskTC;
@@ -176,5 +191,6 @@ namespace Proje_Hastane
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxBrans;
+        private System.Windows.Forms.Label labeluyari;
     }
 }

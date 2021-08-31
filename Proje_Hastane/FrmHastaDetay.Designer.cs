@@ -48,6 +48,8 @@ namespace Proje_Hastane
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.textBoxid = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -109,6 +111,8 @@ namespace Proje_Hastane
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Wheat;
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.textBoxid);
             this.groupBox2.Controls.Add(this.linkLabelbilgiduzenle);
             this.groupBox2.Controls.Add(this.buttonrendevual);
             this.groupBox2.Controls.Add(this.label6);
@@ -137,17 +141,18 @@ namespace Proje_Hastane
             // 
             // buttonrendevual
             // 
-            this.buttonrendevual.Location = new System.Drawing.Point(82, 273);
+            this.buttonrendevual.Location = new System.Drawing.Point(82, 283);
             this.buttonrendevual.Name = "buttonrendevual";
             this.buttonrendevual.Size = new System.Drawing.Size(118, 37);
             this.buttonrendevual.TabIndex = 17;
             this.buttonrendevual.Text = "Randevu Al";
             this.buttonrendevual.UseVisualStyleBackColor = true;
+            this.buttonrendevual.Click += new System.EventHandler(this.buttonrendevual_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 97);
+            this.label6.Location = new System.Drawing.Point(6, 107);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 18);
             this.label6.TabIndex = 10;
@@ -155,7 +160,7 @@ namespace Proje_Hastane
             // 
             // richTextBoxsikayet
             // 
-            this.richTextBoxsikayet.Location = new System.Drawing.Point(82, 97);
+            this.richTextBoxsikayet.Location = new System.Drawing.Point(82, 107);
             this.richTextBoxsikayet.Name = "richTextBoxsikayet";
             this.richTextBoxsikayet.Size = new System.Drawing.Size(215, 170);
             this.richTextBoxsikayet.TabIndex = 9;
@@ -164,7 +169,7 @@ namespace Proje_Hastane
             // comboBoxdoktor
             // 
             this.comboBoxdoktor.FormattingEnabled = true;
-            this.comboBoxdoktor.Location = new System.Drawing.Point(82, 65);
+            this.comboBoxdoktor.Location = new System.Drawing.Point(82, 77);
             this.comboBoxdoktor.Name = "comboBoxdoktor";
             this.comboBoxdoktor.Size = new System.Drawing.Size(150, 26);
             this.comboBoxdoktor.TabIndex = 8;
@@ -173,7 +178,7 @@ namespace Proje_Hastane
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 68);
+            this.label5.Location = new System.Drawing.Point(6, 80);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 18);
             this.label5.TabIndex = 7;
@@ -182,7 +187,7 @@ namespace Proje_Hastane
             // comboBoxbrans
             // 
             this.comboBoxbrans.FormattingEnabled = true;
-            this.comboBoxbrans.Location = new System.Drawing.Point(82, 33);
+            this.comboBoxbrans.Location = new System.Drawing.Point(82, 45);
             this.comboBoxbrans.Name = "comboBoxbrans";
             this.comboBoxbrans.Size = new System.Drawing.Size(150, 26);
             this.comboBoxbrans.TabIndex = 6;
@@ -191,7 +196,7 @@ namespace Proje_Hastane
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 36);
+            this.label8.Location = new System.Drawing.Point(14, 48);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 18);
             this.label8.TabIndex = 5;
@@ -216,6 +221,7 @@ namespace Proje_Hastane
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(668, 235);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // groupBox4
             // 
@@ -236,11 +242,30 @@ namespace Proje_Hastane
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(668, 179);
             this.dataGridView2.TabIndex = 0;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            // 
+            // textBoxid
+            // 
+            this.textBoxid.Enabled = false;
+            this.textBoxid.Location = new System.Drawing.Point(82, 15);
+            this.textBoxid.Name = "textBoxid";
+            this.textBoxid.Size = new System.Drawing.Size(150, 24);
+            this.textBoxid.TabIndex = 19;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(42, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 18);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "ID: ";
             // 
             // FrmHastaDetay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1007, 490);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -249,6 +274,7 @@ namespace Proje_Hastane
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.MaximizeBox = false;
             this.Name = "FrmHastaDetay";
             this.Text = "Hasta Detay";
             this.Load += new System.EventHandler(this.FrmHastaDetay_Load);
@@ -284,5 +310,7 @@ namespace Proje_Hastane
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.LinkLabel linkLabelbilgiduzenle;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxid;
     }
 }

@@ -67,7 +67,7 @@ namespace Proje_Hastane
         private void comboBoxdoktor_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * From Tbl_Randevular Where RandevuBrans='" + comboBoxbrans.Text + "'", bgl.baglanti());
+            SqlDataAdapter da = new SqlDataAdapter("Select * From Tbl_Randevular Where RandevuBrans='" + comboBoxbrans.Text + "'" + "and RandevuDoktor='" + comboBoxdoktor.Text + "' and RandevuDurum=0", bgl.baglanti());
             da.Fill(dt);
             dataGridView2.DataSource = dt;
         }
@@ -77,6 +77,44 @@ namespace Proje_Hastane
             FrmBilgiDuzenle bilgiduzenle = new FrmBilgiDuzenle();
             bilgiduzenle.TC = lblTC.Text;
             bilgiduzenle.Show();
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int secilen = dataGridView2.SelectedCells[0].RowIndex;
+            textBoxid.Text = dataGridView2.Rows[secilen].Cells[0].Value.ToString();
+            richTextBoxsikayet.Text = "";
+            buttonrendevual.Text = "Randevu Al";
+        }
+
+        private void buttonrendevual_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("Update Tbl_Randevular set RandevuDurum=@p1,HastaTC=@p2,HastaSikayet=@p3 where Randevuid=@p4", bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", true);
+            komut.Parameters.AddWithValue("@p2", lblTC.Text);
+            komut.Parameters.AddWithValue("@p3", richTextBoxsikayet.Text);
+            komut.Parameters.AddWithValue("@p4", textBoxid.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            if (buttonrendevual.Text=="Randevu Al")
+            {
+                MessageBox.Show("Randevu başarılı şekilde alınmıştır!");
+            }
+            else if (buttonrendevual.Text == "Güncelle")
+            {
+                MessageBox.Show("Randevunuz başarılı şekilde güncellenmiştir!");
+            }
+            
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int secilen = dataGridView1.SelectedCells[0].RowIndex;
+            textBoxid.Text = dataGridView1.Rows[secilen].Cells[0].Value.ToString();
+            comboBoxbrans.Text= dataGridView1.Rows[secilen].Cells[3].Value.ToString();
+            comboBoxdoktor.Text = dataGridView1.Rows[secilen].Cells[4].Value.ToString();
+            richTextBoxsikayet.Text = dataGridView1.Rows[secilen].Cells[7].Value.ToString();
+            buttonrendevual.Text = "Güncelle";
         }
     }
 }

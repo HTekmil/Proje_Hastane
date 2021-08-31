@@ -126,6 +126,7 @@ namespace Proje_Hastane
             this.MaximizeBox = false;
             this.Name = "FrmSekreterGiris";
             this.Text = "FrmSekreterGiris";
+            this.Load += new System.EventHandler(this.FrmSekreterGiris_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
